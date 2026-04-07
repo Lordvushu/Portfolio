@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mpho Phoofolo | Operations & Service Delivery Leader</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --black: #07080a;
+      --onyx: #0f1012;
+      --card: #13151a;
+      --card-hover: #181b21;
+      --border: #1e2128;
+      --border-light: #2a2d35;
+      --gold: #c9a84c;
+      --gold-light: #e0c070;
+      --white: #eeeae2;
+      --muted: #7a7d88;
+      --muted-light: #9da0ac;
+      --green: #4caf7d;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: 'Outfit', sans-serif; font-weight: 300; line-height: 1.75; overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); border-radius: 2px; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; }
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.25rem 5vw; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); background: rgba(7,8,10,0.92); backdrop-filter: blur(16px); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--gold); letter-spacing: 0.08em; text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); text-decoration: none; letter-spacing: 0.18em; text-transform: uppercase; transition: color 0.25s; }
+    .nav-links a:hover { color: var(--gold); }
+    section { position: relative; z-index: 1; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 5vw; }
+    #hero { min-height: 100vh; display: flex; align-items: center; padding: 10rem 5vw 6rem; overflow: hidden; }
+    .hero-glow { position: absolute; top: 10%; right: 0; width: 50vw; height: 70vh; background: radial-gradient(ellipse at 80% 30%, rgba(201,168,76,0.07) 0%, transparent 65%); pointer-events: none; }
+    .hero-glow-2 { position: absolute; bottom: 0; left: -10%; width: 40vw; height: 50vh; background: radial-gradient(ellipse at 20% 80%, rgba(76,175,125,0.04) 0%, transparent 65%); pointer-events: none; }
+    .hero-content { max-width: 780px; position: relative; z-index: 1; }
+    .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--gold); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+    .hero-eyebrow::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--gold); }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 300; line-height: 1.05; letter-spacing: -0.01em; margin-bottom: 1rem; color: var(--white); }
+    h1 em { font-style: italic; color: var(--gold); }
+    .hero-sub { font-size: 1rem; color: var(--muted-light); max-width: 520px; margin-bottom: 2.5rem; line-height: 1.8; }
+    .hero-stats { display: flex; gap: 3rem; margin-bottom: 3rem; flex-wrap: wrap; }
+    .stat-number { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 600; color: var(--gold); line-height: 1; margin-bottom: 0.25rem; }
+    .stat-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; }
+
+    .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem; }
+    .section-tag { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; white-space: nowrap; }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
+    h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; line-height: 1.15; margin-bottom: 0.75rem; color: var(--white); }
+    h2 em { font-style: italic; color: var(--gold); }
+    #about { padding: 8rem 5vw; border-top: 1px solid var(--border); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .about-text p { color: var(--muted-light); margin-bottom: 1.25rem; font-size: 0.95rem; }
+    .about-text p strong { color: var(--white); font-weight: 500; }
+    .skill-category { margin-bottom: 2rem; }
+    .skill-cat-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .skill-tag { padding: 0.3rem 0.75rem; border: 1px solid var(--border-light); font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted-light); letter-spacing: 0.05em; transition: all 0.2s; cursor: default; }
+    .skill-tag:hover { border-color: var(--gold); color: var(--gold); }
+    #experience { padding: 8rem 5vw; border-top: 1px solid var(--border); }
+    .timeline { position: relative; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0.5rem; bottom: 0; width: 1px; background: var(--border); }
+    .timeline-item { padding-left: 2.5rem; padding-bottom: 3.5rem; position: relative; }
+    .timeline-item::before { content: ''; position: absolute; left: -3px; top: 0.5rem; width: 7px; height: 7px; background: var(--gold); border-radius: 50%; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-date { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .timeline-role { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--white); margin-bottom: 0.2rem; }
+    .timeline-company { font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem; }
+    .timeline-achievements { margin-top: 0.75rem; list-style: none; }
+    .timeline-achievements li { font-size: 0.875rem; color: var(--muted-light); padding: 0.2rem 0 0.2rem 1rem; position: relative; }
+    .timeline-achievements li::before { content: '—'; position: absolute; left: 0; color: rgba(201,168,76,0.5); }
+    #projects { padding: 8rem 5vw; border-top: 1px solid var(--border); }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+    .project-card { background: var(--card); border: 1px solid var(--border); padding: 2rem; position: relative; overflow: hidden; transition: all 0.3s; }
+    .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); opacity: 0; transition: opacity 0.3s; }
+    .project-card:hover { background: var(--card-hover); border-color: var(--border-light); transform: translateY(-2px); }
+    .project-card:hover::before { opacity: 1; }
+    .project-type { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; }
+    .project-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: var(--white); margin-bottom: 0.75rem; line-height: 1.2; }
+    .project-desc { font-size: 0.875rem; color: var(--muted-light); line-height: 1.8; margin-bottom: 1.25rem; }
+    .project-outcome { padding: 0.75rem 1rem; background: rgba(201,168,76,0.06); border-left: 2px solid var(--gold); font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--gold-light); letter-spacing: 0.05em; }
+    #testimonials { padding: 8rem 5vw; border-top: 1px solid var(--border); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+    .testimonial-card { background: var(--card); border: 1px solid var(--border); padding: 2rem; transition: all 0.3s; }
+    .testimonial-card:hover { border-color: var(--border-light); background: var(--card-hover); }
+    .quote-mark { font-family: 'Cormorant Garamond', serif; font-size: 4rem; color: rgba(201,168,76,0.2); line-height: 1; margin-bottom: 0.5rem; }
+    .testimonial-text { font-size: 0.9rem; color: var(--muted-light); line-height: 1.85; font-style: italic; margin-bottom: 1.5rem; }
+    .testimonial-author { display: flex; flex-direction: column; gap: 0.2rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+    .author-name { font-size: 0.875rem; font-weight: 500; color: var(--white); }
+    .author-role { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); letter-spacing: 0.1em; }
+    #certifications { padding: 8rem 5vw; border-top: 1px solid var(--border); }
+    .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .cert-card { background: var(--card); border: 1px solid var(--border); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; transition: all 0.25s; }
+    .cert-card:hover { border-color: var(--gold); background: var(--card-hover); }
+    .cert-badge { font-family: 'DM Mono', monospace; font-size: 0.55rem; color: var(--green); letter-spacing: 0.2em; text-transform: uppercase; }
+    .cert-name { font-size: 0.95rem; font-weight: 500; color: var(--white); line-height: 1.3; }
+    .cert-org { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); letter-spacing: 0.08em; }
+    .cert-distinction { font-family: 'DM Mono', monospace; font-size: 0.55rem; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; }
+    #contact { padding: 8rem 5vw; border-top: 1px solid var(--border); text-align: center; }
+    .contact-inner { max-width: 600px; margin: 0 auto; }
+    .contact-intro { font-size: 0.95rem; color: var(--muted-light); margin-bottom: 2.5rem; line-height: 1.8; }
+    .contact-details { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .contact-item { display: flex; flex-direction: column; gap: 0.25rem; align-items: center; }
+    .contact-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); letter-spacing: 0.18em; text-transform: uppercase; }
+    .contact-value { font-size: 0.9rem; color: var(--white); text-decoration: none; transition: color 0.2s; }
+    .contact-value:hover { color: var(--gold); }
+    footer { padding: 2rem 5vw; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
+    .footer-copy { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); letter-spacing: 0.1em; }
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 768px) {
+      nav { padding: 1.25rem; }
+      .nav-links { display: none; }
+      .hero-stats { gap: 2rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-details { gap: 1.5rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo">M. Phoofolo</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Operations &amp; Service Delivery Leader</div>
+    <h1>Mpho<br/><em>Phoofolo</em></h1>
+    <p class="hero-sub">15+ years delivering operational excellence across enterprise IT environments. ITIL-certified. PRINCE2 Practitioner. Builder of systems that don't break — and teams that don't burn out.</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">0</div>
+        <div class="stat-label">Post-Launch Tickets on Key Projects</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">4K+</div>
+        <div class="stat-label">Users Migrated Successfully</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Distinctions Certified</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">01 — About</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text fade-up">
+        <h2>Operations leader with a <em>psychology edge</em></h2>
+        <p>I hold a BA in Applied Psychology from UNISA — and it's the most useful qualification I have. Understanding how people behave under pressure, how teams fracture, how clients think when their systems are down: that's where I operate differently from most IT operations professionals.</p>
+        <p>Over 15 years I've built and managed operations across enterprise environments — from first-line support to leading complex implementations, change management, and service delivery at Proudly African, Baseline IT, EOH, Business Connexion, and QContact.</p>
+        <p><strong>I also build.</strong> I founded Phanda AI — a live AI-powered job search and CV tailoring SaaS platform — applying ITIL frameworks to product development. I understand technology from both sides of the delivery chain.</p>
+        <p>My philosophy: <strong>process disciplines execution, psychology disciplines people, and both together produce results that last.</strong></p>
+      </div>
+      <div class="about-skills fade-up">
+        <div class="skill-category">
+          <div class="skill-cat-label">Operations &amp; Delivery</div>
+          <div class="skill-tags">
+            <span class="skill-tag">ITIL Framework</span>
+            <span class="skill-tag">Incident Management</span>
+            <span class="skill-tag">Problem Management</span>
+            <span class="skill-tag">Change Management</span>
+            <span class="skill-tag">SLA Management</span>
+            <span class="skill-tag">P1/P2/P3 Escalation</span>
+            <span class="skill-tag">Service Desk</span>
+            <span class="skill-tag">Vendor Management</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-cat-label">Project Delivery</div>
+          <div class="skill-tags">
+            <span class="skill-tag">PRINCE2</span>
+            <span class="skill-tag">Scrum Master</span>
+            <span class="skill-tag">Enterprise Migrations</span>
+            <span class="skill-tag">Stakeholder Management</span>
+            <span class="skill-tag">Risk Management</span>
+            <span class="skill-tag">Root Cause Analysis</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-cat-label">Leadership &amp; People</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Team Coaching</span>
+            <span class="skill-tag">Applied Psychology</span>
+            <span class="skill-tag">Client Relations</span>
+            <span class="skill-tag">Executive Reporting</span>
+            <span class="skill-tag">Conflict Resolution</span>
+            <span class="skill-tag">Performance Management</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-cat-label">Technical</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Office 365</span>
+            <span class="skill-tag">Microsoft Teams</span>
+            <span class="skill-tag">Network Infrastructure</span>
+            <span class="skill-tag">Active Directory</span>
+            <span class="skill-tag">HRIS Systems</span>
+            <span class="skill-tag">ServiceNow</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">02 — Experience</span>
+      <div class="section-line"></div>
+    </div>
+    <h2 style="margin-bottom:3rem;">15 years of <em>delivering</em></h2>
+    <div class="timeline">
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-date">Aug 2024 — Mar 2026</div>
+        <div class="timeline-role">Customer Success Associate</div>
+        <div class="timeline-company">QContact | Remote, Johannesburg</div>
+        <ul class="timeline-achievements">
+          <li>Led 15-day Pinnacle Rewards enterprise implementation as sole Project Manager and Technical Lead — zero post-launch support tickets</li>
+          <li>Developed the Hypercare Methodology: a 35-page ITIL-aligned post-implementation framework achieving zero escalations on a 200-user financial services rollout</li>
+          <li>Managed complex client escalations and served as primary technical point of contact for high-value accounts</li>
+          <li>Delivered FlexiWifi and Brands Up implementations under tight timelines with zero defects</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-date">Feb 2024 — Aug 2024</div>
+        <div class="timeline-role">Founder &amp; Principal Consultant</div>
+        <div class="timeline-company">Clickfix | Johannesburg</div>
+        <ul class="timeline-achievements">
+          <li>Delivered IT operations consulting and project management for SME clients</li>
+          <li>Designed and built Phanda AI — a full-stack AI-powered job search and CV tailoring SaaS platform</li>
+          <li>Applied ITIL frameworks to product development methodology</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-date">Apr 2019 — Oct 2023</div>
+        <div class="timeline-role">Junior IT Manager</div>
+        <div class="timeline-company">S.P.U / Proudly African | Johannesburg</div>
+        <ul class="timeline-achievements">
+          <li>Managed end-to-end IT service delivery and infrastructure for 500+ employee organisation</li>
+          <li>Implemented ITIL-aligned workflows reducing resolution times by 30%</li>
+          <li>Managed vendor relationships and negotiated service agreements</li>
+          <li>Coordinated network infrastructure projects and technical training programmes</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-date">Nov 2016 — Oct 2018</div>
+        <div class="timeline-role">Change &amp; Release Management Specialist</div>
+        <div class="timeline-company">Business Connexion (BCX) | Johannesburg</div>
+        <ul class="timeline-achievements">
+          <li>Coordinated enterprise-scale release deployments across multiple business units — 99.5% success rate</li>
+          <li>Standardised change management processes adopted organisation-wide</li>
+          <li>Managed over 50 software releases with zero critical failures</li>
+          <li>Reduced deployment errors by approximately 30% through workflow optimisation</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-date">Dec 2014 — Nov 2016</div>
+        <div class="timeline-role">Technical Support Specialist</div>
+        <div class="timeline-company">Business Connexion (BCX) | Johannesburg</div>
+        <ul class="timeline-achievements">
+          <li>Led technical delivery for enterprise-scale Office 365 migration impacting 4,000+ users</li>
+          <li>Achieved 90% user adoption rate through targeted training and stakeholder management</li>
+          <li>Received formal commendation from TigerBrands Group HR Services Executive</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-date">Jan 2014 — Nov 2014</div>
+        <div class="timeline-role">Field Support Engineer</div>
+        <div class="timeline-company">EOH | Johannesburg</div>
+        <ul class="timeline-achievements">
+          <li>Managed infrastructure rollout projects and coordinated cross-functional technical teams</li>
+          <li>Resolved complex technical escalations across Windows enterprise environments</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-date">Jan 2012 — Dec 2012</div>
+        <div class="timeline-role">Technical Support Specialist</div>
+        <div class="timeline-company">Baseline IT | Johannesburg</div>
+        <ul class="timeline-achievements">
+          <li>Executed server installations and maintained enterprise client relationships</li>
+          <li>Created technical documentation and managed concurrent client projects</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-date">May 2009 — Oct 2011</div>
+        <div class="timeline-role">Project Administrator</div>
+        <div class="timeline-company">Proudly African | Johannesburg</div>
+        <ul class="timeline-achievements">
+          <li>Supported core project management activities and cross-functional team coordination</li>
+          <li>Coordinated network infrastructure projects and technical training programmes</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">03 — Key Projects</span>
+      <div class="section-line"></div>
+    </div>
+    <h2 style="margin-bottom:3rem;">Work that <em>speaks</em></h2>
+    <div class="projects-grid">
+
+      <div class="project-card fade-up">
+        <div class="project-type">Implementation · 2024</div>
+        <div class="project-title">Pinnacle Rewards Enterprise Implementation</div>
+        <div class="project-desc">15-day compressed cutover for a major retail loyalty rewards system. Solo project management and technical lead. High risk, live business system, zero margin for error.</div>
+        <div class="project-outcome">✦ Zero post-launch support tickets. Zero escalations. On-time delivery.</div>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-type">Methodology · 2024</div>
+        <div class="project-title">Hypercare Methodology</div>
+        <div class="project-desc">Designed and documented a 35-page ITIL-aligned post-implementation support framework. Addresses the systemic problem of high post-go-live incident volumes through proactive monitoring and psychology-based intervention. Commercially available on Gumroad.</div>
+        <div class="project-outcome">✦ Zero post-implementation tickets on 200-user financial services rollout.</div>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-type">Migration · 2015–2016</div>
+        <div class="project-title">TigerBrands Office 365 Migration</div>
+        <div class="project-desc">Enterprise-scale Microsoft Office 365 migration impacting 4,000+ users across TigerBrands. Managed client expectations, coordinated technical delivery, and drove user adoption through targeted training and stakeholder communication.</div>
+        <div class="project-outcome">✦ 90% user adoption rate. Formally commended by Group HR Executive.</div>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-type">SaaS Product · 2024–Present</div>
+        <div class="project-title">Phanda AI</div>
+        <div class="project-desc">Founded and built a full-stack AI-powered job search and CV tailoring SaaS platform under Onyx Mercer (Pty) Ltd. Live product with real users. Applies ITIL delivery methodology to product development. Demonstrates end-to-end operational and technical ownership.</div>
+        <div class="project-outcome">✦ Live product. Real users. Built using the same operational discipline applied to enterprise delivery.</div>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-type">Change Management · 2016–2018</div>
+        <div class="project-title">BCX Enterprise Release Management</div>
+        <div class="project-desc">Coordinated 50+ enterprise software releases across multiple business units at Business Connexion. Standardised change management processes adopted organisation-wide. Formally recommended by Configuration Management Manager.</div>
+        <div class="project-outcome">✦ 99.5% deployment success rate. 30% reduction in deployment errors.</div>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-type">Infrastructure · 2019–2023</div>
+        <div class="project-title">S.P.U IT Service Delivery Transformation</div>
+        <div class="project-desc">Managed end-to-end IT service delivery for a 500+ employee organisation. Implemented ITIL-aligned workflows, managed vendor relationships, and built operational processes from the ground up in a resource-constrained environment.</div>
+        <div class="project-outcome">✦ 30% reduction in resolution times through ITIL workflow implementation.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">04 — Testimonials</span>
+      <div class="section-line"></div>
+    </div>
+    <h2 style="margin-bottom:3rem;">What clients <em>say</em></h2>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card fade-up">
+        <div class="quote-mark">"</div>
+        <div class="testimonial-text">I would like to highlight the outstanding contribution of Mr. Mpho Phoofolo. From day one, he was patient, approachable and consistently went above and beyond to assist us, no matter how big or small the issue. He not only guided us through challenges but also took the time to train me and my colleagues, which greatly improved our confidence in using the platform. Mpho's kindness, professionalism and dedication set him apart, and for us, he truly topped the list of support agents who made these projects a success.</div>
+        <div class="testimonial-author">
+          <span class="author-name">Nashua / Hollard Client</span>
+          <span class="author-role">Implementation Project · QContact</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-up">
+        <div class="quote-mark">"</div>
+        <div class="testimonial-text">Mpho was extremely helpful and friendly and took the time to look right into the problem. In future, the Pragma Durban office would prefer to deal with Mpho directly with regards the Tiger/Donkey server queries as this improves our services to Tiger.</div>
+        <div class="testimonial-author">
+          <span class="author-name">Jason Leech</span>
+          <span class="author-role">Asset Care Engineer · Pragma (TigerBrands Account)</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-up">
+        <div class="quote-mark">"</div>
+        <div class="testimonial-text">My team has expressed some good feedback regarding Mpho who has been working on many of the AD tickets recently. He seems to understand how to do the first line support and root cause investigations and hence works closely with Amanda (HRIS) to resolve the issues. Great team player.</div>
+        <div class="testimonial-author">
+          <span class="author-name">Mubarra Rassool</span>
+          <span class="author-role">Group HR Services Executive · TigerBrands</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-up">
+        <div class="quote-mark">"</div>
+        <div class="testimonial-text">Well done Mpho! Your enthusiasm with assisting our clients and taking ownership of issues, is a wonderful example. Keep it up!</div>
+        <div class="testimonial-author">
+          <span class="author-name">Joanne Lewis-Pennel</span>
+          <span class="author-role">Management · Business Connexion</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-up">
+        <div class="quote-mark">"</div>
+        <div class="testimonial-text">Pinnacle has received feedback from clients about how they would not have understood the system if it wasn't for Mpho's intensive training. His approach to knowledge transfer and user adoption has been exceptional throughout this implementation.</div>
+        <div class="testimonial-author">
+          <span class="author-name">Pinnacle Rewards</span>
+          <span class="author-role">Client Feedback · Post-Implementation</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-up">
+        <div class="quote-mark">"</div>
+        <div class="testimonial-text">Successfully managed over 50 software releases with zero critical failure rate. His combination of technical knowledge, coordination skills, stakeholder management abilities, and strong character make him well-suited for project leadership positions. I confidently recommend him for project management roles.</div>
+        <div class="testimonial-author">
+          <span class="author-name">Sandulela Nonyana</span>
+          <span class="author-role">Configuration Management Manager · Business Connexion</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">05 — Credentials</span>
+      <div class="section-line"></div>
+    </div>
+    <h2 style="margin-bottom:3rem;">Education &amp; <em>Certifications</em></h2>
+    <div class="certs-grid">
+      <div class="cert-card fade-up">
+        <div class="cert-badge">✓ Certified</div>
+        <div class="cert-name">PRINCE2 Project Management</div>
+        <div class="cert-org">AXELOS · 2024</div>
+        <div class="cert-distinction">★ Distinction</div>
+      </div>
+      <div class="cert-card fade-up">
+        <div class="cert-badge">✓ Certified</div>
+        <div class="cert-name">Professional Scrum Master (PSM)</div>
+        <div class="cert-org">Scrum.org · 2024</div>
+        <div class="cert-distinction">★ Distinction</div>
+      </div>
+      <div class="cert-card fade-up">
+        <div class="cert-badge">✓ Certified</div>
+        <div class="cert-name">ITIL Foundation</div>
+        <div class="cert-org">AXELOS · 2024</div>
+        <div class="cert-distinction">★ Distinction</div>
+      </div>
+      <div class="cert-card fade-up">
+        <div class="cert-badge">✓ Degree</div>
+        <div class="cert-name">BA Applied Psychology in Work Context</div>
+        <div class="cert-org">UNISA · 2017–2020</div>
+      </div>
+      <div class="cert-card fade-up">
+        <div class="cert-badge">✓ Founder</div>
+        <div class="cert-name">Phanda AI — Live SaaS Platform</div>
+        <div class="cert-org">Onyx Mercer (Pty) Ltd · 2024–Present</div>
+      </div>
+      <div class="cert-card fade-up">
+        <div class="cert-badge">✓ Published</div>
+        <div class="cert-name">Hypercare Methodology</div>
+        <div class="cert-org">35-page ITIL Framework · Gumroad</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="section-header" style="justify-content:center;">
+        <span class="section-tag">06 — Contact</span>
+      </div>
+      <h2 style="margin-bottom:1rem;">Let's <em>talk</em></h2>
+      <p class="contact-intro">Available for Operations Manager, Service Delivery Manager, and senior IT operations leadership roles. Based in Lesotho with Johannesburg availability.</p>
+      <div class="contact-details">
+        <div class="contact-item">
+          <span class="contact-label">Email</span>
+          <a href="mailto:Mpho.Phoofolo@outlook.com" class="contact-value">Mpho.Phoofolo@outlook.com</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">Phone</span>
+          <a href="tel:+27670115826" class="contact-value">067 011 5826</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">LinkedIn</span>
+          <a href="https://www.linkedin.com/in/mpho-phoofolo-3b563b61/" target="_blank" class="contact-value">mpho-phoofolo</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-copy">© 2026 Mpho Phoofolo. All rights reserved.</span>
+  <span class="footer-copy">Built for GitHub Pages</span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (scrollY >= s.offsetTop - 100) current = s.getAttribute('id'); });
+    navLinks.forEach(l => { l.style.color = l.getAttribute('href') === '#' + current ? 'var(--gold)' : ''; });
+  });
+</script>
+
+</body>
+</html>
